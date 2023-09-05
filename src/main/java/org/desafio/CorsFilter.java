@@ -11,6 +11,7 @@ public class CorsFilter implements ContainerResponseFilter {
     @Override
     public void filter(ContainerRequestContext request, ContainerResponseContext response) {
         response.getHeaders().add("Access-Control-Allow-Origin", "http://localhost:8081"); // url do front
-        response.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+        response.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
+        response.getHeaders().add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     }
 }
