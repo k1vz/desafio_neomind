@@ -3,6 +3,7 @@ package org.logica;
 public class Clock {
 
     public int returnClockAngle(int hour, int minute) {
+
         if (hour < 0 || hour >= 24 || minute < 0 || minute >= 60) {
             System.out.println("Invalid time! Please insert between hour (0-24) and minute (0-59)");
             return -1;
