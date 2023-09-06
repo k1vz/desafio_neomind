@@ -1,0 +1,13 @@
+## API Requests
+
+
+| Resquest             | Method                                                                                  | Route URI             | Body                                                                                  | Response                                                                                |
+|----------------------|-----------------------------------------------------------------------------------------|-----------------------|---------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| Get Supplier         | <div align="center"> ![GET](https://img.shields.io/badge/GET-green?style=flat) </div>   | /rest/supplier        | <div align="center">null</div>                                                        | ` [{ "id": int, "name": string, "email": string, "comment": string, "cnpj": string }] ` |
+| Get Supplier By ID   | <div align="center"> ![GET](https://img.shields.io/badge/GET-green?style=flat) </div>   | /rest/supplier/{id}   | <div align="center">null</div>                                                        | ` { "id": int, "name": string, "email": string, "comment": string, "cnpj": string } `   |
+| Get Supplier By CNPJ | <div align="center"> ![GET](https://img.shields.io/badge/GET-green?style=flat) </div>   | /rest/supplier/{cnpj} | <div align="center">null</div>                                                        | ` { "id": int, "name": string, "email": string, "comment": string, "cnpj": string } `   | ` [{ "cod": num, "front": string, "back": string, "interval_time": num, "review_cod": num }] ` |
+| Add Supplier         | <div align="center"> ![GET](https://img.shields.io/badge/POST-purple?style=flat) </div> | /rest/supplier        | ` { "name": string, "email": string, "comment": string, "cnpj": string } `            | <div align="center">null</div>                                                          |
+| Update Supplier      | <div align="center">  ![GET](https://img.shields.io/badge/PUT-yellow?style=flat) </div> | /rest/supplier        | ` { "id": int, "name": string, "email": string, "comment": string, "cnpj": string } ` | <div align="center">null</div>                                                          |
+| Delete Supplier      | <div align="center">  ![GET](https://img.shields.io/badge/DEL-red?style=flat) </div>    | /rest/supplier/{id}   | <div align="center">null</div>                                                        | <div align="center">null</div>                                                          |
+
+  
