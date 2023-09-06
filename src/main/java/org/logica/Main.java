@@ -3,6 +3,6 @@ package org.logica;
 public class Main {
     public static void main(String[] args) {
         Clock clock = new Clock();
-        System.out.println(clock.returnClockAngle(0, 60));
+        System.out.println(clock.returnClockAngle(-30, 15));
     }
 }
