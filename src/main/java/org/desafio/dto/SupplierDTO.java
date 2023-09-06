@@ -3,13 +3,9 @@ package org.desafio.dto;
 public class SupplierDTO {
 
     private int id;
-
     private String name;
-
     private String email;
-
     private String comment;
-
     private String cnpj;
 
     public SupplierDTO() {

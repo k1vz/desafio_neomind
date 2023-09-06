@@ -1,6 +1,5 @@
 package org.desafio.util.SupplierServiceUtilContract;
 
-
 import org.glassfish.jersey.spi.Contract;
 
 import java.sql.SQLException;

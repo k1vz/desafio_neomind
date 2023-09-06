@@ -13,7 +13,6 @@ public class DbConnection {
     private Object comment;
     private Object cnpj;
 
-
     public DbConnection() throws SQLException, InstantiationException,
             IllegalAccessException, ClassNotFoundException {
         String url = "jdbc:mysql://localhost:3306/desafio";
@@ -29,7 +28,6 @@ public class DbConnection {
     }
 
     public void saveSupplier(SupplierDTO supplier) throws SQLException {
-
         try {
             PreparedStatement preparedStatement = con
                     .prepareStatement("insert supplier (id, name, email, comment, cnpj) values(?,?,?,?,?)");
@@ -49,6 +47,7 @@ public class DbConnection {
     public List<SupplierDTO> getSuppliers() throws SQLException {
         SupplierDTO supplier = null;
         List<SupplierDTO> suppliers = new ArrayList<>();
+
         try {
             PreparedStatement preparedStatement = con
                     .prepareStatement("select * from supplier");
@@ -71,8 +70,8 @@ public class DbConnection {
     }
 
     public SupplierDTO getSupplierById(int id) throws SQLException {
-
         SupplierDTO supplier = null;
+
         try {
             PreparedStatement preparedStatement = con
                     .prepareStatement("select * from supplier where id = ?");
@@ -91,12 +90,13 @@ public class DbConnection {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         }
+
         return supplier;
     }
 
     public SupplierDTO getSupplierByCnpj(String cnpj) throws SQLException {
-
         SupplierDTO supplier = null;
+
         try {
             PreparedStatement preparedStatement = con
                     .prepareStatement("select * from supplier where cnpj = ?");
@@ -115,6 +115,7 @@ public class DbConnection {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         }
+
         return supplier;
     }
 
@@ -137,13 +138,13 @@ public class DbConnection {
     }
 
     public void deleteUser(int id) throws SQLException {
+
         try {
             PreparedStatement preparedStatement = con
                     .prepareStatement("delete from supplier where id = ?");
             preparedStatement.setInt(1, id);
 
             preparedStatement.execute();
-
         } catch (SQLException ex) {
             throw new SQLException(ex);
         }

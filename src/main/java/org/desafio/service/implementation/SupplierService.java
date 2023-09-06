@@ -23,14 +23,13 @@ public class SupplierService implements ServiceContract {
     private SupplierServiceUtilContract supplierServUtils = new SupplierServiceUtil();
 
     public void addSupplier(SupplierCreationDTO supplier) throws Exceptions.SupplierAlreadyExists, Exceptions.SupplierEmailIsntValid, SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, Exceptions.SupplierCnpjIsntValid {
-
         SupplierDTO supplierThatWillBeSaved = new SupplierDTO(supplier);
         int id = supplierServUtils.createId();
         supplierThatWillBeSaved.setId(id);
-
         SupplierDTO suppByCnpj = repositoryImpl.findByCnpj(supplier.getCnpj());
 
         boolean isCnpjValid = supplierServUtils.CnpjValidator(supplier.getCnpj());
+
         if (!isCnpjValid)
             throw new Exceptions.SupplierCnpjIsntValid();
 
@@ -38,6 +37,7 @@ public class SupplierService implements ServiceContract {
             throw new Exceptions.SupplierAlreadyExists();
 
         boolean isEmailValid = supplierServUtils.EmailValidator(supplier.getEmail());
+
         if (!isEmailValid)
             throw new Exceptions.SupplierEmailIsntValid();
 
@@ -53,8 +53,8 @@ public class SupplierService implements ServiceContract {
     }
 
     public void updateSupplier(SupplierDTO supplier) throws Exceptions.SupplierNotFound, SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-
         SupplierDTO supp = repositoryImpl.findById(supplier.getId());
+
         if (supp == null)
             throw new Exceptions.SupplierNotFound();
 
@@ -62,8 +62,8 @@ public class SupplierService implements ServiceContract {
     }
 
     public void deleteSupplier(int id) throws Exceptions.SupplierNotFound, SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-
         SupplierDTO supp = repositoryImpl.findById(id);
+
         if (supp == null)
             throw new Exceptions.SupplierNotFound();
 

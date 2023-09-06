@@ -4,12 +4,9 @@ import org.desafio.dto.SupplierDTO;
 import org.desafio.repository.DbConnection;
 import org.desafio.repository.DbContract.DbContract;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SupplierRepository implements DbContract {
-
-    private static final List<SupplierDTO> supplierRepository = new ArrayList<>();
 
     @Override
     public void save(SupplierDTO supplier) {

@@ -19,5 +19,4 @@ public interface DbContract {
     void update(SupplierDTO supplier);
 
     void delete(int id);
-
 }

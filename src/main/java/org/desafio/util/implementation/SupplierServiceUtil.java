@@ -14,11 +14,10 @@ public class SupplierServiceUtil implements SupplierServiceUtilContract {
     private DbContract repositoryImpl;
 
     public int createId() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-
         Random r = new Random();
         boolean isIdNotCreated = true;
-
         int id;
+
         do {
             id = Math.abs(r.nextInt());
             SupplierDTO suppById = repositoryImpl.findById(id);
@@ -30,7 +29,6 @@ public class SupplierServiceUtil implements SupplierServiceUtilContract {
         } while (isIdNotCreated);
 
         return id;
-
     }
 
     public boolean EmailValidator(String email) {

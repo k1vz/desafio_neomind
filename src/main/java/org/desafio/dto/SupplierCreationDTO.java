@@ -2,13 +2,9 @@ package org.desafio.dto;
 
 public class SupplierCreationDTO {
 
-
     private String name;
-
     private String email;
-
     private String comment;
-
     private String cnpj;
 
     public SupplierCreationDTO() {
@@ -52,6 +48,5 @@ public class SupplierCreationDTO {
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
-
 
 }
