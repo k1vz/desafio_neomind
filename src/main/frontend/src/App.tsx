@@ -16,8 +16,8 @@ function App() {
 		<>
 			<Header />
 			<div className="d-flex m-3 flex-wrap">
-				{data?.map(data => 
-					<Card 
+				{data?.map(data =>
+					<Card
 						key={data.id}
 						id={data.id}
 						name={data.name}
@@ -27,17 +27,18 @@ function App() {
 						refreshData={refreshData}
 					/>
 				)}
-				<Card 
-						id={0}
-						name={""}
-						email={""}
-						comment={""}
-						cnpj={""}
-						refreshData={refreshData}
-						creating={true}
-					/>
+				<Card
+					id={0}
+					name={""}
+					email={""}
+					comment={""}
+					cnpj={""}
+					refreshData={refreshData}
+					creating={true}
+				/>
 			</div>
 		</>
-  )}
+	)
+}
 
 export default App

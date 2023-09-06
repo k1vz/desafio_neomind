@@ -21,7 +21,7 @@ export async function addSupplier(supplier: Omit<ISupplier, "id">) {
 		})
 		const errorMessage = await res.json();
 		if (res.status === 422) {
-			switch (errorMessage.error) { 
+			switch (errorMessage.error) {
 				case "SupplierDTO email isn't valid!": {
 					alert("Email is not valid");
 					break;
@@ -38,7 +38,7 @@ export async function addSupplier(supplier: Omit<ISupplier, "id">) {
 					alert("Supplier not found");
 					break;
 				}
-			}			
+			}
 		}
 	} catch (e) {
 		alert("API isn't responding")

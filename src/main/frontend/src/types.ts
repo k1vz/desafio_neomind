@@ -1,4 +1,4 @@
-export interface ICard extends ISupplier{
+export interface ICard extends ISupplier {
 	refreshData: () => void,
 	creating?: boolean
 }
