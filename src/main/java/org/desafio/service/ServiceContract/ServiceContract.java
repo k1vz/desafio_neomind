@@ -11,7 +11,7 @@ import java.util.List;
 @Contract
 public interface ServiceContract {
 
-    void addSupplier(SupplierCreationDTO supplier) throws Exceptions.SupplierAlreadyExists, Exceptions.SupplierEmailIsntValid, SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException;
+    void addSupplier(SupplierCreationDTO supplier) throws Exceptions.SupplierAlreadyExists, Exceptions.SupplierEmailIsntValid, SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, Exceptions.SupplierCnpjIsntValid;
 
     List<SupplierDTO> findAllSuppliers();
 

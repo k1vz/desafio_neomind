@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { Card} from './components/Card'
+import { Card } from './components/Card'
 import { ICard } from './types';
 import { getSupplier } from './services';
-import LogoNeomind from './assets/logo-neomind-large.svg';
+import { Header } from './components/Header';
 
 function App() {
 	const [data, setData] = useState<ICard[]>();
@@ -14,9 +14,7 @@ function App() {
 
 	return (
 		<>
-			<header className="p-5 header">
-				<img src={LogoNeomind} />
-			</header>
+			<Header />
 			<div className="d-flex m-3 flex-wrap">
 				{data?.map(data => 
 					<Card 

@@ -11,4 +11,6 @@ public interface SupplierServiceUtilContract {
     int createId() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException;
 
     boolean EmailValidator(String email);
+
+    boolean CnpjValidator(String cnpj);
 }

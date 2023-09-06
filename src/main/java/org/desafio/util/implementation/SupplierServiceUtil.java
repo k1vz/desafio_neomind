@@ -36,4 +36,8 @@ public class SupplierServiceUtil implements SupplierServiceUtilContract {
     public boolean EmailValidator(String email) {
         return email.matches("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$");
     }
+
+    public boolean CnpjValidator(String cnpj) {
+        return cnpj.length() > 13 && cnpj.length() < 18;
+    }
 }

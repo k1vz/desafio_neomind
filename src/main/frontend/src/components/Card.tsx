@@ -32,18 +32,19 @@ export const Card = ({ id, name, email, comment, cnpj, refreshData, creating = f
       email: currentEmail,
       comment: currentComment,
       cnpj: currentCnpj
-    }).finally(() => {
+    })
+	.finally(() => {
       refreshData();
     });
   };
 
   return (
-	<div className="card border-success m-5" style={{ maxWidth: "24rem", minWidth: "24rem" }}>
-	<div className="card-header bg-transparent border-success">
+<div className="card m-5" style={{ maxWidth: "24rem", minWidth: "24rem", borderColor: "#1F313D" }}>
+	<div className="card-header bg-transparent " style={{ borderColor: "#1F313D" }}>
 		CNPJ: {!editing ? <span>{cnpj}</span> : <input
 		value={currentCnpj}
 		onChange={e => setCurrentCnpj(e.target.value)}
-		type="text"
+		type="number"
 		className="form-control"
 		placeholder="Enter CNPJ"
 		/>}

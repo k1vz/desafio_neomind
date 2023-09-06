@@ -1,6 +1,7 @@
 package org.desafio.presentation;
 
 
+import org.desafio.Exceptions;
 import org.desafio.dto.SupplierCreationDTO;
 import org.desafio.dto.SupplierDTO;
 import org.desafio.service.ServiceContract.ServiceContract;
@@ -44,7 +45,20 @@ public class SupplierResource {
         try {
             supService.addSupplier(supplier);
             return Response.status(Response.Status.CREATED).entity(supplier).build();
-        } catch (Exception err) {
+        }
+        catch (Exceptions.SupplierEmailIsntValid err) {
+            return Response.status(422).entity((err.getErrorEntity()))
+                    .build();
+        }
+        catch (Exceptions.SupplierCnpjIsntValid err) {
+            return Response.status(422).entity((err.getErrorEntity()))
+                    .build();
+        }
+        catch (Exceptions.SupplierAlreadyExists err) {
+            return Response.status(422).entity((err.getErrorEntity()))
+                    .build();
+        }
+        catch (Exception err) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(err.getMessage())
                     .build();
         }
@@ -58,7 +72,8 @@ public class SupplierResource {
             supService.updateSupplier(supplier);
 
             return Response.ok().build();
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(ex.getMessage())
                     .build();
         }

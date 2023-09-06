@@ -22,13 +22,17 @@ public class SupplierService implements ServiceContract {
     @Inject
     private SupplierServiceUtilContract supplierServUtils = new SupplierServiceUtil();
 
-    public void addSupplier(SupplierCreationDTO supplier) throws Exceptions.SupplierAlreadyExists, Exceptions.SupplierEmailIsntValid, SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public void addSupplier(SupplierCreationDTO supplier) throws Exceptions.SupplierAlreadyExists, Exceptions.SupplierEmailIsntValid, SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, Exceptions.SupplierCnpjIsntValid {
 
         SupplierDTO supplierThatWillBeSaved = new SupplierDTO(supplier);
         int id = supplierServUtils.createId();
         supplierThatWillBeSaved.setId(id);
 
         SupplierDTO suppByCnpj = repositoryImpl.findByCnpj(supplier.getCnpj());
+
+        boolean isCnpjValid = supplierServUtils.CnpjValidator(supplier.getCnpj());
+        if (!isCnpjValid)
+            throw new Exceptions.SupplierCnpjIsntValid();
 
         if (suppByCnpj != null)
             throw new Exceptions.SupplierAlreadyExists();
